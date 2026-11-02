@@ -70,11 +70,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | The $query_builder variables lets you determine whether or not to load
 | the query builder class.
 */
-if (!function_exists('env')) {
-	if (file_exists(APPPATH . 'helpers/env_helper.php')) {
-		require_once APPPATH . 'helpers/env_helper.php';
-	}
-}
 
 $active_group = 'default';
 $query_builder = TRUE;
@@ -85,8 +80,8 @@ $db['default'] = array(
 	'username' => getenv('DB_USER') ?: 'root',
 	'password' => getenv('DB_PASS') ?: '',
 	'database' => getenv('DB_NAME') ?: 'ujian_gtk',
-	'dbdriver' => getenv('DB_DRIVER') ?: 'mysqli',
-	'dbprefix' => getenv('DB_PREFIX') ?: '',
+	'dbdriver' => 'mysqli',
+	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (defined('ENVIRONMENT') ? ENVIRONMENT !== 'production' : TRUE),
 	'cache_on' => FALSE,
